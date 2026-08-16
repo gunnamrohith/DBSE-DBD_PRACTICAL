@@ -1,0 +1,108 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="hwIcdfsfW_20t19K9DH9">
+    <mxGraphModel dx="1245" dy="828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-1" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" value="ROLE" vertex="1">
+          <mxGeometry height="120" width="160" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-2" parent="TlayMfdkoXdu5i7WAZyl-1" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" value="&lt;div&gt;RoleID (PK)&lt;/div&gt;&lt;div&gt;RoleName&lt;/div&gt;&lt;div&gt;Description&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-29" edge="1" parent="1" source="TlayMfdkoXdu5i7WAZyl-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="TlayMfdkoXdu5i7WAZyl-5" value="WORKS IN">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-31" edge="1" parent="1" source="TlayMfdkoXdu5i7WAZyl-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="TlayMfdkoXdu5i7WAZyl-8" value="OWNS">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-3" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" value="DEPARTMENT" vertex="1">
+          <mxGeometry height="120" width="160" x="40" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-4" parent="TlayMfdkoXdu5i7WAZyl-3" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" value="&lt;div&gt;DepartmentID (PK)&lt;/div&gt;&lt;div&gt;DepartmentName&lt;/div&gt;&lt;div&gt;Manager&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-37" edge="1" parent="1" source="TlayMfdkoXdu5i7WAZyl-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="TlayMfdkoXdu5i7WAZyl-18" value="WRITES&lt;div&gt;&lt;br&gt;&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-38" edge="1" parent="1" source="TlayMfdkoXdu5i7WAZyl-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" target="TlayMfdkoXdu5i7WAZyl-13" value="ASSIGNED TO&lt;div&gt;&lt;br&gt;&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-5" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" value="EMPLOYEE&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="180" width="160" x="440" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-6" parent="TlayMfdkoXdu5i7WAZyl-5" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" value="&lt;div&gt;EmployeeID (PK)&lt;/div&gt;&lt;div&gt;Name&lt;/div&gt;&lt;div&gt;Email&lt;/div&gt;&lt;div&gt;Phone&lt;/div&gt;&lt;div&gt;RoleID (FK)&lt;/div&gt;&lt;div&gt;DepartmentID (FK)&lt;/div&gt;&lt;div&gt;Status&lt;/div&gt;" vertex="1">
+          <mxGeometry height="130" width="160" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-35" edge="1" parent="1" source="TlayMfdkoXdu5i7WAZyl-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" target="TlayMfdkoXdu5i7WAZyl-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-36" connectable="0" parent="TlayMfdkoXdu5i7WAZyl-35" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="MANAGES&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.0548" y="-4" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-7" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" value="PROJECT" vertex="1">
+          <mxGeometry height="190" width="160" x="320" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-8" parent="TlayMfdkoXdu5i7WAZyl-7" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" value="&lt;div&gt;ProjectID (PK)&lt;/div&gt;&lt;div&gt;ProjectName&lt;/div&gt;&lt;div&gt;Description&lt;/div&gt;&lt;div&gt;StartDate&lt;/div&gt;&lt;div&gt;EndDate&lt;/div&gt;&lt;div&gt;Status&lt;/div&gt;&lt;div&gt;DepartmentID (FK)&lt;/div&gt;&lt;div&gt;ProjectManagerID (FK)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="160" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-33" edge="1" parent="1" source="TlayMfdkoXdu5i7WAZyl-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="TlayMfdkoXdu5i7WAZyl-13" value="PARTICIPA&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;TES&lt;/span&gt;">
+          <mxGeometry relative="1" x="-0.0018" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-9" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" value="PROJECT_MEMBER" vertex="1">
+          <mxGeometry height="130" width="160" x="320" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-10" parent="TlayMfdkoXdu5i7WAZyl-9" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" value="&lt;div&gt;ProjectMemberID (PK)&lt;/div&gt;&lt;div&gt;ProjectID (FK)&lt;/div&gt;&lt;div&gt;EmployeeID (FK)&lt;/div&gt;&lt;div&gt;JoinedDate&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="160" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-39" edge="1" parent="1" source="TlayMfdkoXdu5i7WAZyl-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" target="TlayMfdkoXdu5i7WAZyl-18" value="HAS&lt;div&gt;&lt;br&gt;&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-40" edge="1" parent="1" source="TlayMfdkoXdu5i7WAZyl-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" target="TlayMfdkoXdu5i7WAZyl-20" value="CONTAINS&lt;div&gt;&lt;br&gt;&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-13" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" value="TASK" vertex="1">
+          <mxGeometry height="190" width="160" x="660" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-14" parent="TlayMfdkoXdu5i7WAZyl-13" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" value="&lt;div&gt;TaskID (PK)&lt;/div&gt;&lt;div&gt;Title&lt;/div&gt;&lt;div&gt;Description&lt;/div&gt;&lt;div&gt;Priority&lt;/div&gt;&lt;div&gt;Status&lt;/div&gt;&lt;div&gt;DueDate&lt;/div&gt;&lt;div&gt;ProjectID (FK)&lt;/div&gt;&lt;div&gt;AssignedTo (FK)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="160" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-17" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" value="COMMENT" vertex="1">
+          <mxGeometry height="130" width="160" x="840" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-18" parent="TlayMfdkoXdu5i7WAZyl-17" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" value="&lt;div&gt;CommentID (PK)&lt;/div&gt;&lt;div&gt;CommentText&lt;/div&gt;&lt;div&gt;CommentDate&lt;/div&gt;&lt;div&gt;TaskID (FK)&lt;/div&gt;&lt;div&gt;EmployeeID (FK)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="160" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-20" parent="1" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" value="ATTACHMENT" vertex="1">
+          <mxGeometry height="130" width="160" x="860" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-21" parent="TlayMfdkoXdu5i7WAZyl-20" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" value="&lt;div&gt;AttachmentID (PK)&lt;/div&gt;&lt;div&gt;FileName&lt;/div&gt;&lt;div&gt;FileType&lt;/div&gt;&lt;div&gt;UploadDate&lt;/div&gt;&lt;div&gt;TaskID (FK)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="160" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-25" edge="1" parent="1" source="TlayMfdkoXdu5i7WAZyl-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="TlayMfdkoXdu5i7WAZyl-6" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200" y="50" />
+              <mxPoint x="440" y="50" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-28" connectable="0" parent="TlayMfdkoXdu5i7WAZyl-25" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="HAS ROLE" vertex="1">
+          <mxGeometry relative="1" x="0.0071" y="-2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-32" edge="1" parent="1" source="TlayMfdkoXdu5i7WAZyl-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="TlayMfdkoXdu5i7WAZyl-9" value="INCLUDES">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TlayMfdkoXdu5i7WAZyl-34" edge="1" parent="1" source="TlayMfdkoXdu5i7WAZyl-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.006;entryY=0.317;entryDx=0;entryDy=0;entryPerimeter=0;" target="TlayMfdkoXdu5i7WAZyl-14" value="CONTAINS&lt;div&gt;&lt;br&gt;&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
