@@ -1,0 +1,116 @@
+{
+  "info": {
+    "name": "E-Commerce Microservices",
+    "description": "Step-by-step requests from the college guide. Run requests in order.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "userId", "value": "" },
+    { "key": "token", "value": "" },
+    { "key": "productId", "value": "" },
+    { "key": "orderId", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "00 Gateway Health",
+      "request": { "method": "GET", "url": "{{baseUrl}}/health" },
+      "event": [{ "listen": "test", "script": { "exec": ["pm.test('Gateway is UP', function () {", "  pm.response.to.have.status(200);", "  pm.expect(pm.response.json().status).to.eql('UP');", "});"] } }]
+    },
+    {
+      "name": "01 Register User",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"name\": \"Anita\",\n  \"email\": \"anita@example.com\",\n  \"password\": \"Pass@123\"\n}" },
+        "url": "{{baseUrl}}/users"
+      },
+      "event": [{ "listen": "test", "script": { "exec": ["pm.test('User created', function () { pm.response.to.have.status(201); });", "pm.collectionVariables.set('userId', pm.response.json().id);"] } }]
+    },
+    {
+      "name": "02 Login",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"email\": \"anita@example.com\",\n  \"password\": \"Pass@123\"\n}" },
+        "url": "{{baseUrl}}/login"
+      },
+      "event": [{ "listen": "test", "script": { "exec": ["pm.test('JWT returned', function () {", "  pm.response.to.have.status(200);", "  pm.expect(pm.response.json().token).to.be.a('string');", "});", "pm.collectionVariables.set('token', pm.response.json().token);"] } }]
+    },
+    {
+      "name": "03 Create Product",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"name\": \"Wireless Headphones\",\n  \"category\": \"Electronics\",\n  \"price\": 1999\n}" },
+        "url": "{{baseUrl}}/products"
+      },
+      "event": [{ "listen": "test", "script": { "exec": ["pm.test('Product created', function () { pm.response.to.have.status(201); });", "pm.collectionVariables.set('productId', pm.response.json().id);"] } }]
+    },
+    {
+      "name": "04 View Products",
+      "request": { "method": "GET", "url": "{{baseUrl}}/products" },
+      "event": [{ "listen": "test", "script": { "exec": ["pm.test('Product list returned', function () {", "  pm.response.to.have.status(200);", "  pm.expect(pm.response.json()).to.be.an('array');", "});"] } }]
+    },
+    {
+      "name": "05 Create Inventory",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"productId\": \"{{productId}}\",\n  \"availableQuantity\": 10\n}" },
+        "url": "{{baseUrl}}/inventory"
+      },
+      "event": [{ "listen": "test", "script": { "exec": ["pm.test('Inventory starts at 10 available and 0 reserved', function () {", "  pm.response.to.have.status(200);", "  pm.expect(pm.response.json().availableQuantity).to.eql(10);", "  pm.expect(pm.response.json().reservedQuantity).to.eql(0);", "});"] } }]
+    },
+    {
+      "name": "06 Check Inventory Before Order",
+      "request": { "method": "GET", "url": "{{baseUrl}}/inventory/{{productId}}" },
+      "event": [{ "listen": "test", "script": { "exec": ["pm.test('Stock is available', function () { pm.expect(pm.response.json().availableQuantity).to.eql(10); });"] } }]
+    },
+    {
+      "name": "07 Create Order",
+      "request": {
+        "method": "POST",
+        "auth": { "type": "bearer", "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }] },
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"userId\": \"{{userId}}\",\n  \"items\": [\n    {\n      \"productId\": \"{{productId}}\",\n      \"quantity\": 2\n    }\n  ]\n}" },
+        "url": "{{baseUrl}}/orders"
+      },
+      "event": [{ "listen": "test", "script": { "exec": ["pm.test('Order reserves inventory', function () {", "  pm.response.to.have.status(201);", "  pm.expect(pm.response.json().status).to.eql('INVENTORY_RESERVED');", "});", "pm.collectionVariables.set('orderId', pm.response.json().orderId);"] } }]
+    },
+    {
+      "name": "08 Check Inventory After Order",
+      "request": { "method": "GET", "url": "{{baseUrl}}/inventory/{{productId}}" },
+      "event": [{ "listen": "test", "script": { "exec": ["pm.test('Inventory is now 8 available and 2 reserved', function () {", "  pm.expect(pm.response.json().availableQuantity).to.eql(8);", "  pm.expect(pm.response.json().reservedQuantity).to.eql(2);", "});"] } }]
+    },
+    {
+      "name": "09 Check Order",
+      "request": { "method": "GET", "url": "{{baseUrl}}/orders/{{orderId}}" },
+      "event": [{ "listen": "test", "script": { "exec": ["pm.test('Saved order is reserved', function () { pm.expect(pm.response.json().status).to.eql('INVENTORY_RESERVED'); });"] } }]
+    },
+    {
+      "name": "10 Check Activity",
+      "request": { "method": "GET", "url": "{{baseUrl}}/activities" },
+      "event": [{ "listen": "test", "script": { "exec": ["pm.test('ORDER_CREATED activity exists', function () {", "  const orderId = pm.collectionVariables.get('orderId');", "  pm.expect(pm.response.json().some(a => a.action === 'ORDER_CREATED' && a.metadata.orderId === orderId)).to.be.true;", "});"] } }]
+    },
+    {
+      "name": "11 Insufficient Inventory Failure",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"userId\": \"{{userId}}\",\n  \"items\": [\n    {\n      \"productId\": \"{{productId}}\",\n      \"quantity\": 50\n    }\n  ]\n}" },
+        "url": "{{baseUrl}}/orders"
+      },
+      "event": [{ "listen": "test", "script": { "exec": ["pm.test('Insufficient stock returns 409', function () { pm.response.to.have.status(409); });"] } }]
+    },
+    {
+      "name": "12 Product Validation Error",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"name\": \"A\",\n  \"category\": \"Electronics\",\n  \"price\": -10\n}" },
+        "url": "{{baseUrl}}/products"
+      },
+      "event": [{ "listen": "test", "script": { "exec": ["pm.test('Pydantic returns 422', function () { pm.response.to.have.status(422); });"] } }]
+    }
+  ]
+}
